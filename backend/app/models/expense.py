@@ -6,8 +6,8 @@ from app.core.db import Base
 class FinancialAccount(Base):
     __tablename__ = "financial_accounts"
 
-    id = Column(UUID(as_uuid=True), primary key=True, default=uuid.uuid4)
-    user_id = Column(UUID(as_uuid=True), ForeignKey("profiles.id", ondelete="CASCADE"), nullable=False)
+    id = Column(String, primary_key=True, default=uuid.uuid4)
+    user_id = Column(String, ForeignKey("profiles.id", ondelete="CASCADE"), nullable=False)
     
     account_name = Column(String, nullable=False) # e.g. HDFC Savings, ICICI Card
     account_type = Column(String, nullable=False) # bank, cash, credit_card, wallet
@@ -17,9 +17,9 @@ class FinancialAccount(Base):
 class Transaction(Base):
     __tablename__ = "transactions"
 
-    id = Column(UUID(as_uuid=True), primary key=True, default=uuid.uuid4)
-    account_id = Column(UUID(as_uuid=True), ForeignKey("financial_accounts.id", ondelete="CASCADE"), nullable=False)
-    user_id = Column(UUID(as_uuid=True), ForeignKey("profiles.id", ondelete="CASCADE"), nullable=False)
+    id = Column(String, primary_key=True, default=uuid.uuid4)
+    account_id = Column(String, ForeignKey("financial_accounts.id", ondelete="CASCADE"), nullable=False)
+    user_id = Column(String, ForeignKey("profiles.id", ondelete="CASCADE"), nullable=False)
     
     amount = Column(Numeric(15, 2), nullable=False)
     type = Column(String, nullable=False) # income, expense, transfer

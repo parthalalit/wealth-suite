@@ -6,8 +6,8 @@ from app.core.db import Base
 class InsurancePolicy(Base):
     __tablename__ = "insurance_policies"
 
-    id = Column(UUID(as_uuid=True), primary key=True, default=uuid.uuid4)
-    user_id = Column(UUID(as_uuid=True), ForeignKey("profiles.id", ondelete="CASCADE"), nullable=False)
+    id = Column(String, primary_key=True, default=uuid.uuid4)
+    user_id = Column(String, ForeignKey("profiles.id", ondelete="CASCADE"), nullable=False)
     
     policy_name = Column(String, nullable=False)
     policy_type = Column(String, nullable=True) # Term Plan, Health, Endowment, ULIP

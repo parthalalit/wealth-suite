@@ -5,7 +5,7 @@ from app.core.db import Base
 class Profile(Base):
     __tablename__ = "profiles"
 
-    id = Column(UUID(as_uuid=True), primary key=True, index=True) # Matches secure Supabase User UUID
+    id = Column(String, primary_key=True, index=True) # Matches secure Supabase User UUID
     full_name = Column(String, nullable=False)
     email = Column(String, nullable=False, unique=True)
     pan_number = Column(String, nullable=True)

@@ -6,8 +6,8 @@ from app.core.db import Base
 class SalaryBreakdown(Base):
     __tablename__ = "salary_breakdowns"
 
-    id = Column(UUID(as_uuid=True), primary key=True, default=uuid.uuid4)
-    user_id = Column(UUID(as_uuid=True), ForeignKey("profiles.id", ondelete="CASCADE"), nullable=False)
+    id = Column(String, primary_key=True, default=uuid.uuid4)
+    user_id = Column(String, ForeignKey("profiles.id", ondelete="CASCADE"), nullable=False)
     person_type = Column(String, nullable=False) # 'self' or 'spouse'
     
     basic_salary = Column(Numeric(15, 2), default=0.00)

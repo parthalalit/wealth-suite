@@ -1,4 +1,4 @@
-from sqlalchemy import Column, ForeignKey, Numeric, DateTime, func
+from sqlalchemy import String, Column, ForeignKey, Numeric, DateTime, func
 from sqlalchemy.dialects.postgresql import UUID
 import uuid
 from app.core.db import Base
@@ -6,8 +6,8 @@ from app.core.db import Base
 class NetWorthSnapshot(Base):
     __tablename__ = "net_worth_snapshots"
 
-    id = Column(UUID(as_uuid=True), primary key=True, default=uuid.uuid4)
-    user_id = Column(UUID(as_uuid=True), ForeignKey("profiles.id", ondelete="CASCADE"), nullable=False)
+    id = Column(String, primary_key=True, default=uuid.uuid4)
+    user_id = Column(String, ForeignKey("profiles.id", ondelete="CASCADE"), nullable=False)
     
     # Personal Assets
     residential_property = Column(Numeric(15, 2), default=0.00)
