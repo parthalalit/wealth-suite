@@ -21,3 +21,6 @@ build/
 # System files
 .DS_Store
 Thumbs.db
+
+# Sensitive Client Data Sheets
+Wealth_Data_Collection.xlsx
