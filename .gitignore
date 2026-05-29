@@ -1,0 +1,23 @@
+# Python virtual env
+.venv/
+__pycache__/
+*.pyc
+
+# Next.js node modules & builds
+node_modules/
+.next/
+out/
+build/
+
+# Local database caches
+*.db
+
+# Secrets & configuration profile variables
+.env
+.env.local
+.env.production
+.env.development
+
+# System files
+.DS_Store
+Thumbs.db
